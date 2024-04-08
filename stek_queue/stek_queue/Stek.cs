@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace stek_queue
+/*namespace stek_queue
 {
     public class Stek
     {
@@ -197,4 +197,4 @@ namespace stek_queue
 
         }
     }
-}
+}*/

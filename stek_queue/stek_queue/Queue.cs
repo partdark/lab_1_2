@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
 namespace stek_queue
 {
     internal class Queue
@@ -189,3 +190,4 @@ namespace stek_queue
         }
     }
 }
+*/
