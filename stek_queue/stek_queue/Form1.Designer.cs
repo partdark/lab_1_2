@@ -70,6 +70,7 @@
             this.сохранитьКакToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сбросПараметровToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -94,12 +95,15 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сбросПараметровToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.backgroundColorDialog = new System.Windows.Forms.ColorDialog();
-            this.сбросПараметровToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.сбросПараметровToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.FrontierStek = new System.Windows.Forms.Button();
+            this.ClearFrontierStek = new System.Windows.Forms.Button();
+            this.ClearFrontierQueue = new System.Windows.Forms.Button();
+            this.FrontierQueue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.StekMenu.SuspendLayout();
@@ -125,6 +129,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ClearFrontierStek);
+            this.tabPage1.Controls.Add(this.FrontierStek);
             this.tabPage1.Controls.Add(this.ChengeBox);
             this.tabPage1.Controls.Add(this.StekCurInfo);
             this.tabPage1.Controls.Add(this.ClearStekCplusplus);
@@ -341,6 +347,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ClearFrontierQueue);
+            this.tabPage2.Controls.Add(this.FrontierQueue);
             this.tabPage2.Controls.Add(this.ChangeBoxS);
             this.tabPage2.Controls.Add(this.ClearQueueCSharp);
             this.tabPage2.Controls.Add(this.ClearQueueCplusplus);
@@ -516,30 +524,37 @@
             // очиститьToolStripMenuItem1
             // 
             this.очиститьToolStripMenuItem1.Name = "очиститьToolStripMenuItem1";
-            this.очиститьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.очиститьToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.очиститьToolStripMenuItem1.Text = "Очистить";
             this.очиститьToolStripMenuItem1.Click += new System.EventHandler(this.очиститьToolStripMenuItem1_Click);
             // 
             // сохранитьКакToolStripMenuItem1
             // 
             this.сохранитьКакToolStripMenuItem1.Name = "сохранитьКакToolStripMenuItem1";
-            this.сохранитьКакToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьКакToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.сохранитьКакToolStripMenuItem1.Text = "Сохранить как..";
             this.сохранитьКакToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьКакToolStripMenuItem1_Click);
             // 
             // загрузитьToolStripMenuItem1
             // 
             this.загрузитьToolStripMenuItem1.Name = "загрузитьToolStripMenuItem1";
-            this.загрузитьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.загрузитьToolStripMenuItem1.Text = "Загрузить";
             this.загрузитьToolStripMenuItem1.Click += new System.EventHandler(this.загрузитьToolStripMenuItem1_Click);
             // 
             // настройкиToolStripMenuItem1
             // 
             this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
-            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.настройкиToolStripMenuItem1.Text = "Выбор цвета фона";
             this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem1_Click);
+            // 
+            // сбросПараметровToolStripMenuItem1
+            // 
+            this.сбросПараметровToolStripMenuItem1.Name = "сбросПараметровToolStripMenuItem1";
+            this.сбросПараметровToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.сбросПараметровToolStripMenuItem1.Text = "Сброс параметров";
+            this.сбросПараметровToolStripMenuItem1.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem1_Click);
             // 
             // справкаToolStripMenuItem1
             // 
@@ -765,30 +780,37 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
             this.toolStripMenuItem2.Text = "Очистить";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(178, 22);
             this.toolStripMenuItem3.Text = "Сохранить как..";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(178, 22);
             this.toolStripMenuItem4.Text = "Загрузить";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // настройкиToolStripMenuItem2
             // 
             this.настройкиToolStripMenuItem2.Name = "настройкиToolStripMenuItem2";
-            this.настройкиToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
             this.настройкиToolStripMenuItem2.Text = "Выбор цвета фона";
             this.настройкиToolStripMenuItem2.Click += new System.EventHandler(this.настройкиToolStripMenuItem2_Click);
+            // 
+            // сбросПараметровToolStripMenuItem2
+            // 
+            this.сбросПараметровToolStripMenuItem2.Name = "сбросПараметровToolStripMenuItem2";
+            this.сбросПараметровToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
+            this.сбросПараметровToolStripMenuItem2.Text = "Сброс параметров";
+            this.сбросПараметровToolStripMenuItem2.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem2_Click);
             // 
             // toolStripMenuItem7
             // 
@@ -801,19 +823,49 @@
             // 
             this.openFileDialog1.FileName = "openStek";
             // 
-            // сбросПараметровToolStripMenuItem1
+            // FrontierStek
             // 
-            this.сбросПараметровToolStripMenuItem1.Name = "сбросПараметровToolStripMenuItem1";
-            this.сбросПараметровToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.сбросПараметровToolStripMenuItem1.Text = "Сброс параметров";
-            this.сбросПараметровToolStripMenuItem1.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem1_Click);
+            this.FrontierStek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FrontierStek.Location = new System.Drawing.Point(703, 335);
+            this.FrontierStek.Name = "FrontierStek";
+            this.FrontierStek.Size = new System.Drawing.Size(129, 53);
+            this.FrontierStek.TabIndex = 18;
+            this.FrontierStek.Text = "Показать начало и конец";
+            this.FrontierStek.UseVisualStyleBackColor = true;
+            this.FrontierStek.Click += new System.EventHandler(this.button9_Click);
             // 
-            // сбросПараметровToolStripMenuItem2
+            // ClearFrontierStek
             // 
-            this.сбросПараметровToolStripMenuItem2.Name = "сбросПараметровToolStripMenuItem2";
-            this.сбросПараметровToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.сбросПараметровToolStripMenuItem2.Text = "Сброс параметров";
-            this.сбросПараметровToolStripMenuItem2.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem2_Click);
+            this.ClearFrontierStek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearFrontierStek.Location = new System.Drawing.Point(703, 393);
+            this.ClearFrontierStek.Name = "ClearFrontierStek";
+            this.ClearFrontierStek.Size = new System.Drawing.Size(129, 23);
+            this.ClearFrontierStek.TabIndex = 19;
+            this.ClearFrontierStek.Text = "Убрать указатели";
+            this.ClearFrontierStek.UseVisualStyleBackColor = true;
+            this.ClearFrontierStek.Click += new System.EventHandler(this.ClearFrontierStek_Click);
+            // 
+            // ClearFrontierQueue
+            // 
+            this.ClearFrontierQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearFrontierQueue.Location = new System.Drawing.Point(707, 392);
+            this.ClearFrontierQueue.Name = "ClearFrontierQueue";
+            this.ClearFrontierQueue.Size = new System.Drawing.Size(129, 23);
+            this.ClearFrontierQueue.TabIndex = 26;
+            this.ClearFrontierQueue.Text = "Убрать указатели";
+            this.ClearFrontierQueue.UseVisualStyleBackColor = true;
+            this.ClearFrontierQueue.Click += new System.EventHandler(this.ClearFrontierQueue_Click);
+            // 
+            // FrontierQueue
+            // 
+            this.FrontierQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FrontierQueue.Location = new System.Drawing.Point(707, 334);
+            this.FrontierQueue.Name = "FrontierQueue";
+            this.FrontierQueue.Size = new System.Drawing.Size(129, 53);
+            this.FrontierQueue.TabIndex = 25;
+            this.FrontierQueue.Text = "Показать начало и конец";
+            this.FrontierQueue.UseVisualStyleBackColor = true;
+            this.FrontierQueue.Click += new System.EventHandler(this.FrontierQueue_Click);
             // 
             // LIFOFIFO
             // 
@@ -921,6 +973,10 @@
         private System.Windows.Forms.ToolStripMenuItem сбросПараметровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сбросПараметровToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem сбросПараметровToolStripMenuItem2;
+        private System.Windows.Forms.Button FrontierStek;
+        private System.Windows.Forms.Button ClearFrontierStek;
+        private System.Windows.Forms.Button ClearFrontierQueue;
+        private System.Windows.Forms.Button FrontierQueue;
     }
 }
 
