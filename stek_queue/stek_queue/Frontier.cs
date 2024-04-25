@@ -22,12 +22,13 @@ namespace stek_queue
         }
         public PictureBox Show(int x, int y, Point location,int cur)
         {
-            var strelka = new Bitmap($"Frontier{cur.ToString()}.png");
+            var strelka = new Bitmap($"Frontier{cur}.png");
             var result = new PictureBox();
             result.Size = new Size(x, y);
             result.SizeMode = PictureBoxSizeMode.StretchImage;
             result.Image = strelka;
             result.Location = location;
+
             return result;
         }
     }
