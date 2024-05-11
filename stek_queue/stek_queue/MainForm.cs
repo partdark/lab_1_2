@@ -26,6 +26,13 @@ namespace stek_queue
     {
         int t = 50;
         int s = 12;
+        bool PointerStek = false;
+        List<PictureBox> PointerStekList = new List<PictureBox>();
+        bool PointerQueue = false;
+        List<PictureBox> PointerQueueList = new List<PictureBox>();
+        bool PointerDeque = false;
+        List<PictureBox> PointerDequeList = new List<PictureBox>();
+        // Bitmap bmp = null;
         // Bitmap bmp = null;
         // PictureBox pic1 = null;
         Stek Stek = new Stek();
@@ -57,11 +64,14 @@ namespace stek_queue
             inputToolTip.SetToolTip(ClearQueueCSharp, "Если объект класса перестает использоваться, то при очистке очереди ссылка на участок памяти также очищается," +
                 "\nоднако это не приводит к немедленной очистке самого участка памяти в куче. Впоследствии сборщик мусора увидит,\n" +
                 "что на данный участок памяти больше нет ссылок, и очистит его.");
-            //comboBox1.SelectedIndex = 0;
+
             Color = this.BackColor;
 
             settings.Reader(this);
             ColorChanger(this.BackColor);
+
+
+
 
         }
 
@@ -104,9 +114,9 @@ namespace stek_queue
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CreateNewStek(object sender, EventArgs e)
         {
-
+            DeleteStekPointer();
 
             var r = Stek.check(stek_done);
             if (r)
@@ -133,8 +143,9 @@ namespace stek_queue
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AddElementsToStek(object sender, EventArgs e)
         {
+            DeleteStekPointer();
             var r = Stek.check(stek_done);
             if (r)
                 return;
@@ -163,8 +174,9 @@ namespace stek_queue
 
         }
 
-        private async void button5_Click(object sender, EventArgs e)
+        private async void DeleteElementsFromStek(object sender, EventArgs e)
         {
+            DeleteStekPointer();
             var r = Stek.check(stek_done);
             if (r)
                 return;
@@ -194,8 +206,9 @@ namespace stek_queue
 
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private async void ClearStekAllAll(object sender, EventArgs e)
         {
+            DeleteStekPointer();
             var r = Stek.check(stek_done);
             if (r)
                 return;
@@ -212,8 +225,9 @@ namespace stek_queue
 
         }
 
-        private async void button4_Click_1(object sender, EventArgs e)
+        private async void CLearStekAllOne(object sender, EventArgs e)
         {
+            DeleteStekPointer();
             var r = Stek.check(stek_done);
             if (r)
                 return;
@@ -270,7 +284,7 @@ namespace stek_queue
             Queue.s = s;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void CreateNewQueueButton(object sender, EventArgs e)
         {
             var r = Queue.check(queue_done);
             if (r)
@@ -287,8 +301,9 @@ namespace stek_queue
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void AddElementsToQueue(object sender, EventArgs e)
         {
+            DeleteQueuePointer();
             var r = Queue.check(queue_done);
             if (r)
                 return;
@@ -311,8 +326,9 @@ namespace stek_queue
 
         }
 
-        private async void button9_ClickAsync(object sender, EventArgs e)
+        private async void DeleteElementsFromQueue(object sender, EventArgs e)
         {
+            DeleteQueuePointer();
             var r = Queue.check(queue_done);
             if (r)
                 return;
@@ -337,8 +353,9 @@ namespace stek_queue
             await Queue.rdAn(a, panelQueue, queue, queue_string, queue_done, this);
         }
 
-        private async void button10_Click(object sender, EventArgs e)
+        private async void CLearQueueAllOne(object sender, EventArgs e)
         {
+            DeleteQueuePointer();
             var r = Queue.check(queue_done);
             if (r)
                 return;
@@ -361,8 +378,9 @@ namespace stek_queue
 
         }
 
-        private async void button11_Click(object sender, EventArgs e)
+        private async void ClearQueueAllAll(object sender, EventArgs e)
         {
+            DeleteQueuePointer();
             var r = Queue.check(queue_done);
             if (r)
                 return;
@@ -390,6 +408,12 @@ namespace stek_queue
             Stek.s = s;
             Queue.s = s;
             Deque.s = s;
+            if (PointerStek)
+                ShowStartEnd(this, EventArgs.Empty);
+            if (PointerDeque)
+                FrontierDeque_Click(this, EventArgs.Empty);
+            if (PointerQueue)
+                FrontierQueue_Click(this, EventArgs.Empty);
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -531,8 +555,9 @@ namespace stek_queue
             ChangeSize();
         }
 
-        private void button6_Click_2(object sender, EventArgs e)
+        private void CreateNewDeque(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(deque_done);
             if (r)
                 return;
@@ -547,8 +572,9 @@ namespace stek_queue
                 Deque.creator(textBox3.Text.Replace("  ", " ").Split(' ').ToArray(), panelDeque, deque, deque_string, deque_done);
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+        private void AddElementsToStartDeque(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(deque_done);
             if (r)
                 return;
@@ -571,8 +597,9 @@ namespace stek_queue
 
         }
 
-        private void button7_Click_1(object sender, EventArgs e)
+        private void AddElementsToEndDeque(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(deque_done);
             if (r)
                 return;
@@ -591,8 +618,9 @@ namespace stek_queue
 
         }
 
-        private async void button8_Click_1(object sender, EventArgs e)
+        private async void DeleteElementsFromStartFromDeque(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(queue_done);
             if (r)
                 return;
@@ -617,8 +645,9 @@ namespace stek_queue
             await Queue.rdAn(a, panelDeque, deque, deque_string, deque_done, this);
         }
 
-        private async void button4_Click_2(object sender, EventArgs e)
+        private async void DeleteElementsFromEndFromDeque(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(queue_done);
             if (r)
                 return;
@@ -637,14 +666,14 @@ namespace stek_queue
             {
                 await Task.Delay(1000);
                 deque[c - i].BackColor = Color.Red;
-
                 Deque.moveDown(deque[c - i].PointToScreen(Point.Empty), new Point(deque[c - i].Location.X, panelDeque.Size.Height + deque[c - i].Size.Height + 1), deque[c - i], c - i, a, panelDeque, deque, deque_string, deque_done);
             }
             await Stek.rdAn(a, panelDeque, deque, deque_string, deque_done, this);
         }
 
-        private async void button2_Click_1(object sender, EventArgs e)
+        private async void ClearDequeAllAll(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(stek_done);
             if (r)
                 return;
@@ -661,8 +690,9 @@ namespace stek_queue
         }
 
 
-        private async void button3_Click_1(object sender, EventArgs e)
+        private async void ClearDequeAllOne(object sender, EventArgs e)
         {
+            DeleteDequePointer();
             var r = Deque.check(stek_done);
             if (r)
                 return;
@@ -696,7 +726,6 @@ namespace stek_queue
                 File.Delete(save.FileName);
                 using (var sw = new StreamWriter(save.FileName, true))
                 {
-
                     sw.WriteLine(queue);
                     sw.Close();
                     MessageBox.Show("Файл успешно сохранен.");
@@ -720,7 +749,6 @@ namespace stek_queue
                     }
                     text = text.Substring(6);
                     text = text.Substring(0, text.Length - 3);
-                    //MessageBox.Show(text);
                     Queue.ClearQueue(panelDeque, label2, deque, deque_string, deque_done);
                     Queue.loader(text.Split(' '), panelDeque, deque, deque_string, deque_done);
                     label4.Text = "Очередь создана";
@@ -734,17 +762,13 @@ namespace stek_queue
             }
         }
 
-
-
         void OpenSetting()
         {
-
             backgroundColorDialog = new ColorDialog();
             backgroundColorDialog.ShowDialog();
             if (backgroundColorDialog.Color != this.Color)
                 this.Color = backgroundColorDialog.Color;
             ColorChanger(this.Color);
-
         }
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -783,6 +807,164 @@ namespace stek_queue
         private void сбросПараметровToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             сбросПараметровToolStripMenuItem_Click(sender, e);
+        }
+
+        private void ShowStartEnd(object sender, EventArgs e)
+        {
+            if (Stek.check(stek_done))
+            {
+                return;
+            }
+            if (stek.Count < 2)
+            {
+                return;
+            }
+            if (PointerStek)
+            {
+                DeleteStekPointer();
+            }
+
+            var pointerStart = new Frontier();
+            var size = stek[0].Size.Width;
+            var position = new Point(stek[0].Location.X, stek[0].Location.Y - 20 - (int)(panelStek.Height / 3));
+            var start = pointerStart.Show(size, (int)(panelStek.Height / 3), position, 1);
+            panelStek.Controls.Add(start);
+            var pointerEnd = new Frontier();
+            size = stek[stek.Count - 1].Size.Width;
+            position = new Point(stek[stek.Count - 1].Location.X, stek[stek.Count - 1].Location.Y - 20 - (int)(panelStek.Height / 3));
+            var end = pointerEnd.Show(size, (int)(panelStek.Height / 3), position, 2);
+            panelStek.Controls.Add(end);
+            PointerStekList.Add(start);
+            PointerStekList.Add(end);
+            PointerStek = true;
+        }
+        void DeleteStekPointer()
+        {
+            for (var i = 0; i < PointerStekList.Count; i++)
+            {
+
+                panelStek.Controls.Remove(PointerStekList[i]);
+            }
+            PointerStekList.Clear();
+            PointerStek = false;
+        }
+
+        private void ClearFrontierStek_Click(object sender, EventArgs e)
+        {
+            DeleteStekPointer();
+        }
+        void DeleteQueuePointer()
+        {
+            for (var i = 0; i < PointerQueueList.Count; i++)
+            {
+
+                panelQueue.Controls.Remove(PointerQueueList[i]);
+
+            }
+            PointerQueueList.Clear();
+            PointerQueue = false;
+        }
+        private void FrontierQueue_Click(object sender, EventArgs e)
+        {
+            if (Queue.check(queue_done))
+            {
+                return;
+            }
+            if (queue.Count < 2)
+            {
+                return;
+            }
+            if (PointerQueue)
+            {
+                DeleteQueuePointer();
+            }
+
+            var pointerStart = new Frontier();
+            var size = queue[0].Size.Width;
+            var position = new Point(queue[0].Location.X, queue[0].Location.Y - 20 - (int)(panelQueue.Height / 3));
+            var start = pointerStart.Show(size, (int)(panelQueue.Height / 3), position, 1);
+            panelQueue.Controls.Add(start);
+            var pointerEnd = new Frontier();
+            size = queue[queue.Count - 1].Size.Width;
+            position = new Point(queue[queue.Count - 1].Location.X, queue[queue.Count - 1].Location.Y - 20 - (int)(panelQueue.Height / 3));
+            var end = pointerEnd.Show(size, (int)(panelQueue.Height / 3), position, 2);
+            panelQueue.Controls.Add(end);
+            PointerQueueList.Add(start);
+            PointerQueueList.Add(end);
+            PointerQueue = true;
+
+        }
+
+        private void ClearFrontierQueue_Click(object sender, EventArgs e)
+        {
+            DeleteQueuePointer();
+        }
+
+        private void FrontierDeque_Click(object sender, EventArgs e)
+        {
+            if (Deque.check(deque_done))
+            {
+                return;
+            }
+            if (deque.Count < 2)
+            {
+                return;
+            }
+            if (PointerDeque)
+            {
+                DeleteDequePointer();
+            }
+
+            var pointerStart = new Frontier();
+            var size = deque[0].Size.Width;
+            var position = new Point(deque[0].Location.X, deque[0].Location.Y - 20 - (int)(panelDeque.Height / 3));
+            var start = pointerStart.Show(size, (int)(panelDeque.Height / 3), position, 1);
+            panelDeque.Controls.Add(start);
+            var pointerEnd = new Frontier();
+            size = deque[deque.Count - 1].Size.Width;
+            position = new Point(deque[deque.Count - 1].Location.X, deque[deque.Count - 1].Location.Y - 20 - (int)(panelDeque.Height / 3));
+            var end = pointerEnd.Show(size, (int)(panelDeque.Height / 3), position, 2);
+            panelDeque.Controls.Add(end);
+            PointerDequeList.Add(start);
+            PointerDequeList.Add(end);
+            PointerDeque = true;
+        }
+        void DeleteDequePointer()
+        {
+            for (var i = 0; i < PointerDequeList.Count; i++)
+            {
+                panelDeque.Controls.Remove(PointerDequeList[i]);
+            }
+            PointerDeque = false;
+            PointerDequeList.Clear();
+        }
+
+        private void ClearFrontierDeque_Click(object sender, EventArgs e)
+        {
+            DeleteDequePointer();
+        }
+
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Stek.Pos(panelStek, stek);
+            Queue.Pos(panelQueue, queue);
+            Deque.Pos(panelDeque, deque);
+            s = panelStek.Size.Width * panelStek.Size.Height / 20000;
+            Stek.s = s;
+            Queue.s = s;
+            Deque.s = s;
+            if (PointerStek)
+                ShowStartEnd(this, EventArgs.Empty);
+            if (PointerDeque)
+                FrontierDeque_Click(this, EventArgs.Empty);
+            if (PointerQueue)
+                FrontierQueue_Click(this, EventArgs.Empty);
         }
     }
 }

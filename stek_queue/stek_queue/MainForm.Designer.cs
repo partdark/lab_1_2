@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LIFOFIFO));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ClearFrontierStek = new System.Windows.Forms.Button();
+            this.FrontierStek = new System.Windows.Forms.Button();
             this.ChengeBox = new System.Windows.Forms.Button();
             this.StekCurInfo = new System.Windows.Forms.Label();
             this.ClearStekCplusplus = new System.Windows.Forms.Button();
@@ -52,6 +54,8 @@
             this.сбросПараметровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ClearFrontierQueue = new System.Windows.Forms.Button();
+            this.FrontierQueue = new System.Windows.Forms.Button();
             this.ChangeBoxS = new System.Windows.Forms.Button();
             this.ClearQueueCSharp = new System.Windows.Forms.Button();
             this.ClearQueueCplusplus = new System.Windows.Forms.Button();
@@ -70,8 +74,11 @@
             this.сохранитьКакToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сбросПараметровToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ClearFrontierDeque = new System.Windows.Forms.Button();
+            this.FrontierDeque = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -94,12 +101,11 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сбросПараметровToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.backgroundColorDialog = new System.Windows.Forms.ColorDialog();
-            this.сбросПараметровToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.сбросПараметровToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.StekMenu.SuspendLayout();
@@ -120,11 +126,15 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(850, 465);
+            this.tabControl1.Size = new System.Drawing.Size(850, 480);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ClearFrontierStek);
+            this.tabPage1.Controls.Add(this.FrontierStek);
             this.tabPage1.Controls.Add(this.ChengeBox);
             this.tabPage1.Controls.Add(this.StekCurInfo);
             this.tabPage1.Controls.Add(this.ClearStekCplusplus);
@@ -141,10 +151,32 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(842, 439);
+            this.tabPage1.Size = new System.Drawing.Size(842, 454);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Стек";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ClearFrontierStek
+            // 
+            this.ClearFrontierStek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearFrontierStek.Location = new System.Drawing.Point(703, 408);
+            this.ClearFrontierStek.Name = "ClearFrontierStek";
+            this.ClearFrontierStek.Size = new System.Drawing.Size(129, 23);
+            this.ClearFrontierStek.TabIndex = 19;
+            this.ClearFrontierStek.Text = "Убрать указатели";
+            this.ClearFrontierStek.UseVisualStyleBackColor = true;
+            this.ClearFrontierStek.Click += new System.EventHandler(this.ClearFrontierStek_Click);
+            // 
+            // FrontierStek
+            // 
+            this.FrontierStek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FrontierStek.Location = new System.Drawing.Point(703, 350);
+            this.FrontierStek.Name = "FrontierStek";
+            this.FrontierStek.Size = new System.Drawing.Size(129, 53);
+            this.FrontierStek.TabIndex = 18;
+            this.FrontierStek.Text = "Показать начало и конец";
+            this.FrontierStek.UseVisualStyleBackColor = true;
+            this.FrontierStek.Click += new System.EventHandler(this.ShowStartEnd);
             // 
             // ChengeBox
             // 
@@ -162,7 +194,7 @@
             // 
             this.StekCurInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.StekCurInfo.AutoSize = true;
-            this.StekCurInfo.Location = new System.Drawing.Point(754, 423);
+            this.StekCurInfo.Location = new System.Drawing.Point(754, 438);
             this.StekCurInfo.Name = "StekCurInfo";
             this.StekCurInfo.Size = new System.Drawing.Size(85, 13);
             this.StekCurInfo.TabIndex = 16;
@@ -172,29 +204,29 @@
             // ClearStekCplusplus
             // 
             this.ClearStekCplusplus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearStekCplusplus.Location = new System.Drawing.Point(557, 387);
+            this.ClearStekCplusplus.Location = new System.Drawing.Point(557, 402);
             this.ClearStekCplusplus.Name = "ClearStekCplusplus";
             this.ClearStekCplusplus.Size = new System.Drawing.Size(119, 35);
             this.ClearStekCplusplus.TabIndex = 15;
             this.ClearStekCplusplus.Text = "Очистка стека (C++)";
             this.ClearStekCplusplus.UseVisualStyleBackColor = true;
-            this.ClearStekCplusplus.Click += new System.EventHandler(this.button4_Click_1);
+            this.ClearStekCplusplus.Click += new System.EventHandler(this.CLearStekAllOne);
             // 
             // ClearStekCshrp
             // 
             this.ClearStekCshrp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearStekCshrp.Location = new System.Drawing.Point(557, 344);
+            this.ClearStekCshrp.Location = new System.Drawing.Point(557, 359);
             this.ClearStekCshrp.Name = "ClearStekCshrp";
             this.ClearStekCshrp.Size = new System.Drawing.Size(119, 35);
             this.ClearStekCshrp.TabIndex = 14;
             this.ClearStekCshrp.Text = "Очистка стека (C#)";
             this.ClearStekCshrp.UseVisualStyleBackColor = true;
-            this.ClearStekCshrp.Click += new System.EventHandler(this.button3_Click);
+            this.ClearStekCshrp.Click += new System.EventHandler(this.ClearStekAllAll);
             // 
             // DeleteNumber
             // 
             this.DeleteNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteNumber.Location = new System.Drawing.Point(375, 387);
+            this.DeleteNumber.Location = new System.Drawing.Point(375, 402);
             this.DeleteNumber.Name = "DeleteNumber";
             this.DeleteNumber.Size = new System.Drawing.Size(119, 20);
             this.DeleteNumber.TabIndex = 13;
@@ -202,18 +234,18 @@
             // DeleteEL
             // 
             this.DeleteEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteEL.Location = new System.Drawing.Point(375, 344);
+            this.DeleteEL.Location = new System.Drawing.Point(375, 359);
             this.DeleteEL.Name = "DeleteEL";
             this.DeleteEL.Size = new System.Drawing.Size(119, 35);
             this.DeleteEL.TabIndex = 12;
             this.DeleteEL.Text = "Удалить элементы";
             this.DeleteEL.UseVisualStyleBackColor = true;
-            this.DeleteEL.Click += new System.EventHandler(this.button5_Click);
+            this.DeleteEL.Click += new System.EventHandler(this.DeleteElementsFromStek);
             // 
             // AddToStekStore
             // 
             this.AddToStekStore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddToStekStore.Location = new System.Drawing.Point(237, 386);
+            this.AddToStekStore.Location = new System.Drawing.Point(237, 401);
             this.AddToStekStore.Name = "AddToStekStore";
             this.AddToStekStore.Size = new System.Drawing.Size(119, 20);
             this.AddToStekStore.TabIndex = 6;
@@ -221,19 +253,19 @@
             // AddToStek
             // 
             this.AddToStek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddToStek.Location = new System.Drawing.Point(237, 344);
+            this.AddToStek.Location = new System.Drawing.Point(237, 359);
             this.AddToStek.Name = "AddToStek";
             this.AddToStek.Size = new System.Drawing.Size(119, 35);
             this.AddToStek.TabIndex = 5;
             this.AddToStek.Text = "Добавить элементы";
             this.AddToStek.UseVisualStyleBackColor = true;
-            this.AddToStek.Click += new System.EventHandler(this.button2_Click);
+            this.AddToStek.Click += new System.EventHandler(this.AddElementsToStek);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 409);
+            this.label1.Location = new System.Drawing.Point(13, 424);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(214, 13);
             this.label1.TabIndex = 4;
@@ -242,7 +274,7 @@
             // StartStekStore
             // 
             this.StartStekStore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.StartStekStore.Location = new System.Drawing.Point(16, 386);
+            this.StartStekStore.Location = new System.Drawing.Point(16, 401);
             this.StartStekStore.Name = "StartStekStore";
             this.StartStekStore.Size = new System.Drawing.Size(121, 20);
             this.StartStekStore.TabIndex = 3;
@@ -251,13 +283,13 @@
             // CreateStek
             // 
             this.CreateStek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CreateStek.Location = new System.Drawing.Point(16, 344);
+            this.CreateStek.Location = new System.Drawing.Point(16, 359);
             this.CreateStek.Name = "CreateStek";
             this.CreateStek.Size = new System.Drawing.Size(121, 35);
             this.CreateStek.TabIndex = 2;
             this.CreateStek.Text = "Создать новый стек";
             this.CreateStek.UseVisualStyleBackColor = true;
-            this.CreateStek.Click += new System.EventHandler(this.button1_Click);
+            this.CreateStek.Click += new System.EventHandler(this.CreateNewStek);
             // 
             // panelStek
             // 
@@ -268,7 +300,7 @@
             this.panelStek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelStek.Location = new System.Drawing.Point(16, 46);
             this.panelStek.Name = "panelStek";
-            this.panelStek.Size = new System.Drawing.Size(820, 282);
+            this.panelStek.Size = new System.Drawing.Size(820, 297);
             this.panelStek.TabIndex = 1;
             this.panelStek.Resize += new System.EventHandler(this.panel1_Resize);
             // 
@@ -341,6 +373,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ClearFrontierQueue);
+            this.tabPage2.Controls.Add(this.FrontierQueue);
             this.tabPage2.Controls.Add(this.ChangeBoxS);
             this.tabPage2.Controls.Add(this.ClearQueueCSharp);
             this.tabPage2.Controls.Add(this.ClearQueueCplusplus);
@@ -357,11 +391,33 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(842, 439);
+            this.tabPage2.Size = new System.Drawing.Size(842, 454);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Очередь";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // ClearFrontierQueue
+            // 
+            this.ClearFrontierQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearFrontierQueue.Location = new System.Drawing.Point(707, 407);
+            this.ClearFrontierQueue.Name = "ClearFrontierQueue";
+            this.ClearFrontierQueue.Size = new System.Drawing.Size(129, 23);
+            this.ClearFrontierQueue.TabIndex = 26;
+            this.ClearFrontierQueue.Text = "Убрать указатели";
+            this.ClearFrontierQueue.UseVisualStyleBackColor = true;
+            this.ClearFrontierQueue.Click += new System.EventHandler(this.ClearFrontierQueue_Click);
+            // 
+            // FrontierQueue
+            // 
+            this.FrontierQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FrontierQueue.Location = new System.Drawing.Point(707, 349);
+            this.FrontierQueue.Name = "FrontierQueue";
+            this.FrontierQueue.Size = new System.Drawing.Size(129, 53);
+            this.FrontierQueue.TabIndex = 25;
+            this.FrontierQueue.Text = "Показать начало и конец";
+            this.FrontierQueue.UseVisualStyleBackColor = true;
+            this.FrontierQueue.Click += new System.EventHandler(this.FrontierQueue_Click);
             // 
             // ChangeBoxS
             // 
@@ -378,29 +434,29 @@
             // ClearQueueCSharp
             // 
             this.ClearQueueCSharp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearQueueCSharp.Location = new System.Drawing.Point(553, 339);
+            this.ClearQueueCSharp.Location = new System.Drawing.Point(553, 354);
             this.ClearQueueCSharp.Name = "ClearQueueCSharp";
             this.ClearQueueCSharp.Size = new System.Drawing.Size(119, 35);
             this.ClearQueueCSharp.TabIndex = 23;
             this.ClearQueueCSharp.Text = "Очистка очереди (C#)";
             this.ClearQueueCSharp.UseVisualStyleBackColor = true;
-            this.ClearQueueCSharp.Click += new System.EventHandler(this.button11_Click);
+            this.ClearQueueCSharp.Click += new System.EventHandler(this.ClearQueueAllAll);
             // 
             // ClearQueueCplusplus
             // 
             this.ClearQueueCplusplus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearQueueCplusplus.Location = new System.Drawing.Point(553, 380);
+            this.ClearQueueCplusplus.Location = new System.Drawing.Point(553, 395);
             this.ClearQueueCplusplus.Name = "ClearQueueCplusplus";
             this.ClearQueueCplusplus.Size = new System.Drawing.Size(119, 35);
             this.ClearQueueCplusplus.TabIndex = 22;
             this.ClearQueueCplusplus.Text = "Очистка очереди (C++)";
             this.ClearQueueCplusplus.UseVisualStyleBackColor = true;
-            this.ClearQueueCplusplus.Click += new System.EventHandler(this.button10_Click);
+            this.ClearQueueCplusplus.Click += new System.EventHandler(this.CLearQueueAllOne);
             // 
             // DeleneFromQueueCount
             // 
             this.DeleneFromQueueCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleneFromQueueCount.Location = new System.Drawing.Point(387, 380);
+            this.DeleneFromQueueCount.Location = new System.Drawing.Point(387, 395);
             this.DeleneFromQueueCount.Name = "DeleneFromQueueCount";
             this.DeleneFromQueueCount.Size = new System.Drawing.Size(119, 20);
             this.DeleneFromQueueCount.TabIndex = 21;
@@ -408,18 +464,18 @@
             // DeleteFromQueue
             // 
             this.DeleteFromQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteFromQueue.Location = new System.Drawing.Point(387, 339);
+            this.DeleteFromQueue.Location = new System.Drawing.Point(387, 354);
             this.DeleteFromQueue.Name = "DeleteFromQueue";
             this.DeleteFromQueue.Size = new System.Drawing.Size(119, 35);
             this.DeleteFromQueue.TabIndex = 20;
             this.DeleteFromQueue.Text = "Удалить элементы";
             this.DeleteFromQueue.UseVisualStyleBackColor = true;
-            this.DeleteFromQueue.Click += new System.EventHandler(this.button9_ClickAsync);
+            this.DeleteFromQueue.Click += new System.EventHandler(this.DeleteElementsFromQueue);
             // 
             // QueueAddStore
             // 
             this.QueueAddStore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.QueueAddStore.Location = new System.Drawing.Point(240, 380);
+            this.QueueAddStore.Location = new System.Drawing.Point(240, 395);
             this.QueueAddStore.Name = "QueueAddStore";
             this.QueueAddStore.Size = new System.Drawing.Size(119, 20);
             this.QueueAddStore.TabIndex = 19;
@@ -428,19 +484,19 @@
             // QueueAdd
             // 
             this.QueueAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.QueueAdd.Location = new System.Drawing.Point(240, 339);
+            this.QueueAdd.Location = new System.Drawing.Point(240, 354);
             this.QueueAdd.Name = "QueueAdd";
             this.QueueAdd.Size = new System.Drawing.Size(119, 35);
             this.QueueAdd.TabIndex = 18;
             this.QueueAdd.Text = "Добавить элементы";
             this.QueueAdd.UseVisualStyleBackColor = true;
-            this.QueueAdd.Click += new System.EventHandler(this.button8_Click);
+            this.QueueAdd.Click += new System.EventHandler(this.AddElementsToQueue);
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(726, 423);
+            this.label4.Location = new System.Drawing.Point(726, 438);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 17;
@@ -450,7 +506,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 417);
+            this.label3.Location = new System.Drawing.Point(3, 432);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(214, 13);
             this.label3.TabIndex = 7;
@@ -459,7 +515,7 @@
             // QueueNewStore
             // 
             this.QueueNewStore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.QueueNewStore.Location = new System.Drawing.Point(16, 380);
+            this.QueueNewStore.Location = new System.Drawing.Point(16, 395);
             this.QueueNewStore.Name = "QueueNewStore";
             this.QueueNewStore.Size = new System.Drawing.Size(119, 20);
             this.QueueNewStore.TabIndex = 6;
@@ -467,13 +523,13 @@
             // CreateNewQueue
             // 
             this.CreateNewQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CreateNewQueue.Location = new System.Drawing.Point(16, 339);
+            this.CreateNewQueue.Location = new System.Drawing.Point(16, 354);
             this.CreateNewQueue.Name = "CreateNewQueue";
             this.CreateNewQueue.Size = new System.Drawing.Size(119, 35);
             this.CreateNewQueue.TabIndex = 5;
             this.CreateNewQueue.Text = "Создать новую очередь";
             this.CreateNewQueue.UseVisualStyleBackColor = true;
-            this.CreateNewQueue.Click += new System.EventHandler(this.button7_Click);
+            this.CreateNewQueue.Click += new System.EventHandler(this.CreateNewQueueButton);
             // 
             // panelQueue
             // 
@@ -484,7 +540,7 @@
             this.panelQueue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelQueue.Location = new System.Drawing.Point(16, 46);
             this.panelQueue.Name = "panelQueue";
-            this.panelQueue.Size = new System.Drawing.Size(820, 282);
+            this.panelQueue.Size = new System.Drawing.Size(820, 297);
             this.panelQueue.TabIndex = 2;
             // 
             // QueueMenu
@@ -516,30 +572,37 @@
             // очиститьToolStripMenuItem1
             // 
             this.очиститьToolStripMenuItem1.Name = "очиститьToolStripMenuItem1";
-            this.очиститьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.очиститьToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.очиститьToolStripMenuItem1.Text = "Очистить";
             this.очиститьToolStripMenuItem1.Click += new System.EventHandler(this.очиститьToolStripMenuItem1_Click);
             // 
             // сохранитьКакToolStripMenuItem1
             // 
             this.сохранитьКакToolStripMenuItem1.Name = "сохранитьКакToolStripMenuItem1";
-            this.сохранитьКакToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьКакToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.сохранитьКакToolStripMenuItem1.Text = "Сохранить как..";
             this.сохранитьКакToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьКакToolStripMenuItem1_Click);
             // 
             // загрузитьToolStripMenuItem1
             // 
             this.загрузитьToolStripMenuItem1.Name = "загрузитьToolStripMenuItem1";
-            this.загрузитьToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.загрузитьToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.загрузитьToolStripMenuItem1.Text = "Загрузить";
             this.загрузитьToolStripMenuItem1.Click += new System.EventHandler(this.загрузитьToolStripMenuItem1_Click);
             // 
             // настройкиToolStripMenuItem1
             // 
             this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
-            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.настройкиToolStripMenuItem1.Text = "Выбор цвета фона";
             this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem1_Click);
+            // 
+            // сбросПараметровToolStripMenuItem1
+            // 
+            this.сбросПараметровToolStripMenuItem1.Name = "сбросПараметровToolStripMenuItem1";
+            this.сбросПараметровToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.сбросПараметровToolStripMenuItem1.Text = "Сброс параметров";
+            this.сбросПараметровToolStripMenuItem1.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem1_Click);
             // 
             // справкаToolStripMenuItem1
             // 
@@ -550,6 +613,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.ClearFrontierDeque);
+            this.tabPage3.Controls.Add(this.FrontierDeque);
             this.tabPage3.Controls.Add(this.textBox5);
             this.tabPage3.Controls.Add(this.button8);
             this.tabPage3.Controls.Add(this.textBox4);
@@ -569,15 +634,37 @@
             this.tabPage3.Controls.Add(this.menuStrip1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(842, 439);
+            this.tabPage3.Size = new System.Drawing.Size(842, 454);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Деки";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // ClearFrontierDeque
+            // 
+            this.ClearFrontierDeque.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearFrontierDeque.Location = new System.Drawing.Point(704, 412);
+            this.ClearFrontierDeque.Name = "ClearFrontierDeque";
+            this.ClearFrontierDeque.Size = new System.Drawing.Size(129, 23);
+            this.ClearFrontierDeque.TabIndex = 43;
+            this.ClearFrontierDeque.Text = "Убрать указатели";
+            this.ClearFrontierDeque.UseVisualStyleBackColor = true;
+            this.ClearFrontierDeque.Click += new System.EventHandler(this.ClearFrontierDeque_Click);
+            // 
+            // FrontierDeque
+            // 
+            this.FrontierDeque.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FrontierDeque.Location = new System.Drawing.Point(704, 354);
+            this.FrontierDeque.Name = "FrontierDeque";
+            this.FrontierDeque.Size = new System.Drawing.Size(129, 53);
+            this.FrontierDeque.TabIndex = 42;
+            this.FrontierDeque.Text = "Показать начало и конец";
+            this.FrontierDeque.UseVisualStyleBackColor = true;
+            this.FrontierDeque.Click += new System.EventHandler(this.FrontierDeque_Click);
+            // 
             // textBox5
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox5.Location = new System.Drawing.Point(579, 380);
+            this.textBox5.Location = new System.Drawing.Point(579, 395);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(119, 20);
             this.textBox5.TabIndex = 41;
@@ -585,18 +672,18 @@
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.Location = new System.Drawing.Point(579, 339);
+            this.button8.Location = new System.Drawing.Point(579, 354);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(119, 35);
             this.button8.TabIndex = 40;
             this.button8.Text = "Удалить элементы с начала";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            this.button8.Click += new System.EventHandler(this.DeleteElementsFromStartFromDeque);
             // 
             // textBox4
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox4.Location = new System.Drawing.Point(194, 380);
+            this.textBox4.Location = new System.Drawing.Point(194, 395);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(119, 20);
             this.textBox4.TabIndex = 39;
@@ -604,13 +691,13 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.Location = new System.Drawing.Point(194, 339);
+            this.button7.Location = new System.Drawing.Point(194, 354);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(119, 35);
             this.button7.TabIndex = 38;
             this.button7.Text = "Добавить элементы в конец";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            this.button7.Click += new System.EventHandler(this.AddElementsToEndDeque);
             // 
             // button1
             // 
@@ -627,29 +714,29 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(717, 339);
+            this.button2.Location = new System.Drawing.Point(319, 421);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 35);
+            this.button2.Size = new System.Drawing.Size(149, 30);
             this.button2.TabIndex = 36;
             this.button2.Text = "Очистка очереди (C#)";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.Click += new System.EventHandler(this.ClearDequeAllAll);
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Location = new System.Drawing.Point(717, 380);
+            this.button3.Location = new System.Drawing.Point(474, 421);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 35);
+            this.button3.Size = new System.Drawing.Size(160, 32);
             this.button3.TabIndex = 35;
             this.button3.Text = "Очистка очереди (C++)";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.button3.Click += new System.EventHandler(this.ClearDequeAllOne);
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(444, 380);
+            this.textBox1.Location = new System.Drawing.Point(444, 395);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 34;
@@ -657,18 +744,18 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(444, 339);
+            this.button4.Location = new System.Drawing.Point(444, 354);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 35);
             this.button4.TabIndex = 33;
             this.button4.Text = "Удалить элементы с конца";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_2);
+            this.button4.Click += new System.EventHandler(this.DeleteElementsFromEndFromDeque);
             // 
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Location = new System.Drawing.Point(319, 380);
+            this.textBox2.Location = new System.Drawing.Point(319, 395);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(119, 20);
             this.textBox2.TabIndex = 32;
@@ -677,19 +764,19 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(319, 339);
+            this.button5.Location = new System.Drawing.Point(319, 354);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(119, 35);
             this.button5.TabIndex = 31;
             this.button5.Text = "Добавить элементы в начало";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            this.button5.Click += new System.EventHandler(this.AddElementsToStartDeque);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(726, 423);
+            this.label2.Location = new System.Drawing.Point(726, 438);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 30;
@@ -699,7 +786,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 417);
+            this.label5.Location = new System.Drawing.Point(3, 432);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(214, 13);
             this.label5.TabIndex = 29;
@@ -708,7 +795,7 @@
             // textBox3
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox3.Location = new System.Drawing.Point(16, 380);
+            this.textBox3.Location = new System.Drawing.Point(16, 395);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(119, 20);
             this.textBox3.TabIndex = 28;
@@ -716,13 +803,13 @@
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(16, 339);
+            this.button6.Location = new System.Drawing.Point(16, 354);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(119, 35);
             this.button6.TabIndex = 27;
             this.button6.Text = "Создать новый дек";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click_2);
+            this.button6.Click += new System.EventHandler(this.CreateNewDeque);
             // 
             // panelDeque
             // 
@@ -733,7 +820,7 @@
             this.panelDeque.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelDeque.Location = new System.Drawing.Point(16, 46);
             this.panelDeque.Name = "panelDeque";
-            this.panelDeque.Size = new System.Drawing.Size(820, 282);
+            this.panelDeque.Size = new System.Drawing.Size(820, 297);
             this.panelDeque.TabIndex = 26;
             // 
             // menuStrip1
@@ -765,30 +852,37 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
             this.toolStripMenuItem2.Text = "Очистить";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(178, 22);
             this.toolStripMenuItem3.Text = "Сохранить как..";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(178, 22);
             this.toolStripMenuItem4.Text = "Загрузить";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // настройкиToolStripMenuItem2
             // 
             this.настройкиToolStripMenuItem2.Name = "настройкиToolStripMenuItem2";
-            this.настройкиToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
             this.настройкиToolStripMenuItem2.Text = "Выбор цвета фона";
             this.настройкиToolStripMenuItem2.Click += new System.EventHandler(this.настройкиToolStripMenuItem2_Click);
+            // 
+            // сбросПараметровToolStripMenuItem2
+            // 
+            this.сбросПараметровToolStripMenuItem2.Name = "сбросПараметровToolStripMenuItem2";
+            this.сбросПараметровToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
+            this.сбросПараметровToolStripMenuItem2.Text = "Сброс параметров";
+            this.сбросПараметровToolStripMenuItem2.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem2_Click);
             // 
             // toolStripMenuItem7
             // 
@@ -800,20 +894,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openStek";
-            // 
-            // сбросПараметровToolStripMenuItem1
-            // 
-            this.сбросПараметровToolStripMenuItem1.Name = "сбросПараметровToolStripMenuItem1";
-            this.сбросПараметровToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.сбросПараметровToolStripMenuItem1.Text = "Сброс параметров";
-            this.сбросПараметровToolStripMenuItem1.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem1_Click);
-            // 
-            // сбросПараметровToolStripMenuItem2
-            // 
-            this.сбросПараметровToolStripMenuItem2.Name = "сбросПараметровToolStripMenuItem2";
-            this.сбросПараметровToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.сбросПараметровToolStripMenuItem2.Text = "Сброс параметров";
-            this.сбросПараметровToolStripMenuItem2.Click += new System.EventHandler(this.сбросПараметровToolStripMenuItem2_Click);
             // 
             // LIFOFIFO
             // 
@@ -921,6 +1001,12 @@
         private System.Windows.Forms.ToolStripMenuItem сбросПараметровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сбросПараметровToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem сбросПараметровToolStripMenuItem2;
+        private System.Windows.Forms.Button FrontierStek;
+        private System.Windows.Forms.Button ClearFrontierStek;
+        private System.Windows.Forms.Button ClearFrontierQueue;
+        private System.Windows.Forms.Button FrontierQueue;
+        private System.Windows.Forms.Button ClearFrontierDeque;
+        private System.Windows.Forms.Button FrontierDeque;
     }
 }
 
